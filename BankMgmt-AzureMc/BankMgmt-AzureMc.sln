@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{162246B9-6F23-4414-9EA4-591B1365EDB2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Authentication", "Authentication", "{651882A7-2608-4E1D-B290-AA9948DEA12A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authentication.API", "Services\Authentication\Authentication.API\Authentication.API.csproj", "{B6DB6132-FE14-4123-AC47-6811E9C98409}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Customer", "Customer", "{77F39E7B-9064-4577-BAEB-F5E3120F5D78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customer.API", "Services\Customer\Customer.API\Customer.API.csproj", "{530C2015-3920-4AA3-AD6B-21AFAB3143AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B6DB6132-FE14-4123-AC47-6811E9C98409}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6DB6132-FE14-4123-AC47-6811E9C98409}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6DB6132-FE14-4123-AC47-6811E9C98409}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6DB6132-FE14-4123-AC47-6811E9C98409}.Release|Any CPU.Build.0 = Release|Any CPU
+		{530C2015-3920-4AA3-AD6B-21AFAB3143AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{530C2015-3920-4AA3-AD6B-21AFAB3143AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{530C2015-3920-4AA3-AD6B-21AFAB3143AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{530C2015-3920-4AA3-AD6B-21AFAB3143AA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{651882A7-2608-4E1D-B290-AA9948DEA12A} = {162246B9-6F23-4414-9EA4-591B1365EDB2}
+		{B6DB6132-FE14-4123-AC47-6811E9C98409} = {651882A7-2608-4E1D-B290-AA9948DEA12A}
+		{77F39E7B-9064-4577-BAEB-F5E3120F5D78} = {162246B9-6F23-4414-9EA4-591B1365EDB2}
+		{530C2015-3920-4AA3-AD6B-21AFAB3143AA} = {77F39E7B-9064-4577-BAEB-F5E3120F5D78}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5A45D545-1D7A-42B1-A1DC-4BF82D0854AC}
+	EndGlobalSection
+EndGlobal
