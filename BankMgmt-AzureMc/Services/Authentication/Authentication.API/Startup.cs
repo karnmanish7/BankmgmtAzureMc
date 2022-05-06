@@ -1,3 +1,4 @@
+using Common.Utility;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -16,9 +17,11 @@ namespace Authentication.API
 {
     public class Startup
     {
+        //private IHostingEnvironment HostingEnvironment { get; set; }
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            //HostingEnvironment = hostingEnvironment;
         }
 
         public IConfiguration Configuration { get; }
@@ -26,7 +29,12 @@ namespace Authentication.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            // File should be ENVironment Specific
+            IConfigurationBuilder builder = new ConfigurationBuilder()
+                                    .AddJsonFile("appsettings.json"); // This file will be overridden by below next line 
+                                    /*.AddJsonFile($"appsettings.{HostingEnvironment.EnvironmentName}.json", optional: true);*/ // Read ENV value for appsetting
+            //services.AddJwtAuthentication(HostingEnvironment, builder); // Extension for JWT
+            services.AddJwtAuthentication(builder);
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -44,10 +52,10 @@ namespace Authentication.API
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Authentication.API v1"));
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
