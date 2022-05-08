@@ -13,16 +13,16 @@ namespace Customer.API
         public string LastName { get; set; }
         public string Username { get; set; }
 
-        [Required(ErrorMessage = "Please Enter Password...")]
-        [DataType(DataType.Password)]
-        [Display(Name = "Password")]
-        public string Password { get; set; }
+        //[Required(ErrorMessage = "Please Enter Password...")]
+        //[DataType(DataType.Password)]
+        //[Display(Name = "Password")]
+        //public string Password { get; set; }
 
-        [Required(ErrorMessage = "Please Enter the Confirm Password...")]
-        [DataType(DataType.Password)]
-        [Display(Name = "Confirm Password")]
-        [Compare("Password")]
-        public string Confirmpwd { get; set; }
+        //[Required(ErrorMessage = "Please Enter the Confirm Password...")]
+        //[DataType(DataType.Password)]
+        //[Display(Name = "Confirm Password")]
+        //[Compare("Password")]
+        //public string Confirmpwd { get; set; }
 
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }

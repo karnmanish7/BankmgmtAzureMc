@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace Authentication.API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class LoginController : ControllerBase

@@ -1,3 +1,4 @@
+using Common.Utility;
 using Customer.API.DBContext;
 using Customer.API.Repository;
 using Microsoft.AspNetCore.Builder;
@@ -29,8 +30,13 @@ namespace Customer.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<BankMgmtDBContext>(dbContext => dbContext.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            // services.AddDbContext<BankMgmtDBContext>(dbContext => dbContext.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            // File should be ENVironment Specific
+            IConfigurationBuilder builder = new ConfigurationBuilder()
+                                    .AddJsonFile("appsettings.json"); // This file will be overridden by below next line 
+            
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddJwtAuthentication(builder); // Extension for JWT
 
             // configure DI for application services
             services.AddScoped<ICustomerRepository, CustomerRepository>();
@@ -56,6 +62,7 @@ namespace Customer.API
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

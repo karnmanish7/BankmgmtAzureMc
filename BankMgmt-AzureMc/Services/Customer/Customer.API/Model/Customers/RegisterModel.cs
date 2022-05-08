@@ -14,8 +14,17 @@ namespace Customer.API.Model.Customers
         [Required]
         public string Username { get; set; }
 
-        [Required]
+        
+        [Required(ErrorMessage = "Please Enter Password...")]
+        [DataType(DataType.Password)]
+        [Display(Name = "Password")]
         public string Password { get; set; }
+
+        [Required(ErrorMessage = "Please Enter the Confirm Password...")]
+        [DataType(DataType.Password)]
+        [Display(Name = "Confirm Password")]
+        [Compare("Password")]
+        public string Confirmpwd { get; set; }
 
         public string Address { get; set; }
         public string State { get; set; }
