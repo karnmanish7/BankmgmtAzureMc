@@ -1,4 +1,6 @@
-﻿using Customer.API.DTOs;
+﻿using AutoMapper;
+using Customer.API.DTOs;
+using Customer.API.Model.Customers;
 using Customer.API.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,16 +17,18 @@ namespace Customer.API.Controllers
     {
 
         private readonly ICustomerRepository _customerRepository;
+        private IMapper _mapper;
 
-        public CustomerController(ICustomerRepository customerRepository)
+        public CustomerController(ICustomerRepository customerRepository,IMapper mapper)
         {
-            if (_customerRepository == null)
-            {
-                throw new NullReferenceException();
-            }
+            //if (_customerRepository == null)
+            //{
+            //    throw new NullReferenceException();
+            //}
 
             //this._customerRepository = customerRepository;
             _customerRepository = customerRepository;
+            _mapper = mapper;
         }
 
         [Route("register")]
@@ -41,9 +45,27 @@ namespace Customer.API.Controllers
 
             };
             var createdUser = await _customerRepository.Register(customerToCreate, customerForRegisterDTO.Password);
-            return StatusCode(201);
+            return StatusCode(201);  
+        }
 
-           
+        [Route("register1")]
+        [HttpPost]
+        public async Task<IActionResult> Register([FromBody] RegisterModel model)
+        {
+            // map model to entity
+            var user = _mapper.Map<Customer>(model);
+
+            try
+            {
+                // create user
+                await _customerRepository.Create(user, model.Password);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                // return error message if there was an exception
+                return BadRequest(new { message = ex.Message });
+            }
         }
     }
 }

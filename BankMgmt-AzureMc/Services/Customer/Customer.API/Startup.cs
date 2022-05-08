@@ -1,4 +1,5 @@
 using Customer.API.DBContext;
+using Customer.API.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,6 +30,11 @@ namespace Customer.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<BankMgmtDBContext>(dbContext => dbContext.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            // configure DI for application services
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

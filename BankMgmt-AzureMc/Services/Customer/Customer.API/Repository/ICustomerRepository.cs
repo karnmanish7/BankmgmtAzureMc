@@ -9,5 +9,6 @@ namespace Customer.API.Repository
     {
         Task<Customer> Register(Customer customer, string password);
         Task<bool> UserExists(string username);
+        Task<Customer> Create(Customer user, string password);
     }
 }
