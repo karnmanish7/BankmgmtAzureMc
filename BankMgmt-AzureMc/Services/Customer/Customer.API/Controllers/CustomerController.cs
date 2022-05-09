@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
-using Customer.API.DTOs;
-using Customer.API.Model.Customers;
-using Customer.API.Repository;
+using CustomerService.API.DTOs;
+using CustomerService.API.Entities;
+using CustomerService.API.Model.Customers;
+using CustomerService.API.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -9,8 +11,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Customer.API.Controllers
+namespace CustomerService.API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CustomerController : ControllerBase

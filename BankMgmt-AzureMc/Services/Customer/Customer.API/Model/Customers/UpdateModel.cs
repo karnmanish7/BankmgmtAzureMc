@@ -1,4 +1,4 @@
-namespace Customer.API.Model.Customers
+namespace CustomerService.API.Model.Customers
 {
   public class UpdateModel
     {

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Customer.API.DTOs
+namespace CustomerService.API.DTOs
 {
     public class CustomerForRegisterDTO
     {

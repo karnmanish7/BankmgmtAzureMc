@@ -1,15 +1,20 @@
-﻿using Authentication.API.Handler;
-using Authentication.API.Model;
+﻿using AuthenticationService.API.Handler;
+using AuthenticationService.API.Model;
+using CustomerService.API.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace Authentication.API.Controllers
+namespace AuthenticationService.API.Controllers
 {
     [Authorize]
     [Route("api/[controller]")]
@@ -42,5 +47,6 @@ namespace Authentication.API.Controllers
 
             return response;
         }
+
     }
 }

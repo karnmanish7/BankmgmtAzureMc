@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Authentication.API": {
+    "AuthenticationService.API": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",

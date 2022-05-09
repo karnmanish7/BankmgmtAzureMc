@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Customer.API
+namespace CustomerService.API.Entities
 {
     public class Customer
     {
@@ -38,8 +37,6 @@ namespace Customer.API
         public DateTime CreatedDtate { get; set; }
         public DateTime UpdatedDtate { get; set; }
     }
-
-
     public enum AccountType
     {
         Savings,

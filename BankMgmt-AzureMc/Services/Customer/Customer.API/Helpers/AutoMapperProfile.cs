@@ -1,7 +1,8 @@
 using AutoMapper;
-using Customer.API.Model.Customers;
+using CustomerService.API.Model.Customers;
+using CustomerService.API.Entities;
 
-namespace Customer.API.Helpers
+namespace CustomerService.API.Helpers
 {
     public class AutoMapperProfile : Profile
     {

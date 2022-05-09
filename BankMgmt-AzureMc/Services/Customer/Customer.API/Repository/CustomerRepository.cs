@@ -1,11 +1,12 @@
-﻿using Customer.API.DBContext;
+﻿using CustomerService.API.DBContext;
+using CustomerService.API.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Customer.API.Repository
+namespace CustomerService.API.Repository
 {
     public class CustomerRepository:ICustomerRepository
     {
@@ -16,37 +17,37 @@ namespace Customer.API.Repository
             _bankMgmtDBContext = bankMgmtDBContext;
         }
 
-        public async Task<Customer> Register(Customer customer, string password)
+        public async Task<Customer> Register(Customer Customer, string password)
         {
             byte[] passwordHash, passwordSalt;
             CreatePasswordHash(password, out passwordHash, out passwordSalt);
-            customer.PasswordHash = passwordHash;
-            customer.PasswordSalt = passwordSalt;
-            await _bankMgmtDBContext.Customers.AddAsync(customer);
+            Customer.PasswordHash = passwordHash;
+            Customer.PasswordSalt = passwordSalt;
+            await _bankMgmtDBContext.Customers.AddAsync(Customer);
             await _bankMgmtDBContext.SaveChangesAsync();
-            return customer;
+            return Customer;
         }
 
-        public async Task<Customer> Create(Customer customer, string password)
+        public async Task<Customer> Create(Customer Customer, string password)
         {
             // validation
             if (string.IsNullOrWhiteSpace(password))
                 throw new Exception("Password is required");
 
-            if (_bankMgmtDBContext.Customers.Any(x => x.Username == customer.Username))
+            if (_bankMgmtDBContext.Customers.Any(x => x.Username == Customer.Username))
                 //throw new AppException("Username \"" + user.Username + "\" is already taken");
-                throw new Exception("Username \"" + customer.Username + "\" is already taken");
+                throw new Exception("Username \"" + Customer.Username + "\" is already taken");
 
             byte[] passwordHash, passwordSalt;
             CreatePasswordHash(password, out passwordHash, out passwordSalt);
 
-            customer.PasswordHash = passwordHash;
-            customer.PasswordSalt = passwordSalt;
+            Customer.PasswordHash = passwordHash;
+            Customer.PasswordSalt = passwordSalt;
 
-            _bankMgmtDBContext.Customers.Add(customer);
+            _bankMgmtDBContext.Customers.Add(Customer);
             _bankMgmtDBContext.SaveChanges();
 
-            return customer;
+            return Customer;
         }
       
         private static void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)

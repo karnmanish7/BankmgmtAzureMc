@@ -1,6 +1,6 @@
 using Common.Utility;
-using Customer.API.DBContext;
-using Customer.API.Repository;
+using CustomerService.API.DBContext;
+using CustomerService.API.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -16,7 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Customer.API
+namespace CustomerService.API
 {
     public class Startup
     {
@@ -30,7 +30,7 @@ namespace Customer.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // services.AddDbContext<BankMgmtDBContext>(dbContext => dbContext.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+             services.AddDbContext<BankMgmtDBContext>(dbContext => dbContext.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             // File should be ENVironment Specific
             IConfigurationBuilder builder = new ConfigurationBuilder()
                                     .AddJsonFile("appsettings.json"); // This file will be overridden by below next line 
@@ -44,7 +44,7 @@ namespace Customer.API
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Customer.API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "CustomerService.API", Version = "v1" });
             });
         }
 
@@ -55,7 +55,7 @@ namespace Customer.API
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Customer.API v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CustomerService.API v1"));
             }
 
             app.UseHttpsRedirection();

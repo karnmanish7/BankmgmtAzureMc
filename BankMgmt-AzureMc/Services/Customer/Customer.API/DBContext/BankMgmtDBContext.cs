@@ -3,8 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CustomerService.API.Entities;
 
-namespace Customer.API.DBContext
+namespace CustomerService.API.DBContext
 {
     public class BankMgmtDBContext:DbContext
     {
@@ -14,7 +15,8 @@ namespace Customer.API.DBContext
         }
 
         public virtual DbSet<Customer> Customers { get; set; }
-       
+        public virtual DbSet<testme> testmes { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

@@ -1,6 +1,6 @@
 using System;
 
-namespace Authentication.API
+namespace AuthenticationService.API
 {
     public class WeatherForecast
     {

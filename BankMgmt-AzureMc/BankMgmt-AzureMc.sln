@@ -7,11 +7,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{16
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Authentication", "Authentication", "{651882A7-2608-4E1D-B290-AA9948DEA12A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authentication.API", "Services\Authentication\Authentication.API\Authentication.API.csproj", "{B6DB6132-FE14-4123-AC47-6811E9C98409}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationService.API", "Services\Authentication\Authentication.API\AuthenticationService.API.csproj", "{B6DB6132-FE14-4123-AC47-6811E9C98409}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Customer", "Customer", "{77F39E7B-9064-4577-BAEB-F5E3120F5D78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customer.API", "Services\Customer\Customer.API\Customer.API.csproj", "{530C2015-3920-4AA3-AD6B-21AFAB3143AA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerService.API", "Services\Customer\Customer.API\CustomerService.API.csproj", "{530C2015-3920-4AA3-AD6B-21AFAB3143AA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Utility", "Common.Utility\Common.Utility.csproj", "{D78B9042-11F5-4A1E-9D2F-6554567B626D}"
 EndProject
